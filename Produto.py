@@ -1,16 +1,27 @@
 class Produto:
 	
-	def __init__(self):
+	def __init__(self, nome, valor, quantidade = 0, marca = ''):
 		
 		self.nome = ''
 		self.marca =''
+		self.quandtidade = quantidade
 		self.model = ''
 		self.valor = ''
+		
 
+	def vender(self, quantidade):
+		if(quantidade > self.quantidade):
+		print("não há estoque suficiente")
+		print("Quantidade máxima:" , self.quantidade)
+		self.quantidade -= quantidade
 
-produto = Produto('Celular', 2000,'Samsung', 'J8')
+	def comprar(self , quantidade):
+		self.quantidade += quantidade	
+	
 
-produto1 = Produto('Geladeira',4000, 'Brastemo', 'BST900')
+produto = Produto('Celular', 2000, 100, 'Samsung', 'J8')
+
+produto1 = Produto('Geladeira',4000, 50, 'Brastemo', 'BST900')
 
 
 print(produto0.__dict__)
