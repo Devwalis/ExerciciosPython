@@ -1,36 +1,63 @@
-class Imovel:
+from abc import ABC
+
+
+class Imovel(ABC): 
 	def __init__(self, nome, uf, valor, endereco = '', area = ''):
 		self.nome= nome
 		self.uf = uf
 		self.valor = valor
 		self.endereco = endereco
 		self.area = area
-	
+
 	def detalhar(self):
 		print(self.__dict__)
-		
-
-	
-		
 
 	def calcularImposto(self)
 		return self.valor * 0.02
 
 class ImovelResidencial(Imovel):
-
+	def __init__(self, nome, uf, valor, endereco = '', area = ''):
+		super().__init__(nome, uf, valor, endereco = '', area = '')
+		self.quartos = 0
+		self.piscina = false
+		
 
 
 class ImovelComercial(Imovel):
 
 
+class ImovelRural():
+	def __init__(self, hectares, curral, produtiva):
+		self.hectares = ''
+		self.curral = ''
+		self.produtiva = True
+		
+	def mesPlantacao(self, mes):
+		switch mes:
+			case 1: print('milho')
+			case 2: print('feijão')
+			case 3: print('soja')
+			case other: print('Algodão')
+
+class Fazenda(ImovelRural, Imovel):
+
+
+	
+
+
 casa = ImovelResidencial()
-print(casa)
+casa.detalhar()
+
+
+
+clinica = ImovelComcecial('Clinica x', 'DF', 80000)
+clinica.detalhar()
 
 
 
 
 
-
+'''
 imovel = Imovel('Solar do cerrado', 'df', 500000)
 imovel.endereco ='ABC'
 imovel.area = '2000'
@@ -39,3 +66,4 @@ imovel.detalhar()
 
 print(imovel.__dict__)
 
+'''
