@@ -3,12 +3,34 @@ from abc import ABC
 
 class Imovel(ABC): 
 	def __init__(self, nome, uf, valor, endereco = '', area = ''):
-		self.nome= nome
-		self.uf = uf
-		self.valor = valor
-		self.endereco = endereco
-		self.area = area
+		self._nome= nome
+		self._uf = uf
+		self._valor = valor
+		self._endereco = endereco
+		self._area = area
 
+
+	@property
+	def nome(self):
+		return self.nome
+
+
+	@nome.setter
+	def nome(self, nome):
+		self._nome = nome
+	
+
+	'''
+	def getNome(self):
+		return self.nome
+		
+	def setNome(self):
+		self.nome = nome
+	'''
+
+	
+
+	
 	def detalhar(self):
 		print(self.__dict__)
 
