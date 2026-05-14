@@ -35,7 +35,18 @@ class Imovel(ABC):
 		print(self.__dict__)
 
 	def calcularImposto(self)
-		return self.valor * 0.02
+		match self._uf:
+			case 'DF': taxa = 0.03
+			case 'SP': taxa = 0.04
+			case 'RJ': taxa = 0.02
+			case other: taxa = 0.02
+			
+		return self._valor * taxa
+
+
+	@abstractctmethod
+	def aluguelSugerido(self):
+		
 
 class ImovelResidencial(Imovel):
 	def __init__(self, nome, uf, valor, endereco = '', area = ''):
