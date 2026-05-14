@@ -1,5 +1,7 @@
 class Imovel:
 
+	
+
 
 	def __init__(self, nome, quartos, suites):
 		self.nome = nome
@@ -25,6 +27,17 @@ class Imovel:
 	def __str__(self):
 		return str(self.__dict__)
 
+	def detalhar(self):
+		return self.__dict__
+
+	def somarAposentos(self):
+		return self.quartos + self.suites
+
+	@staticmethod
+	def metodoEstatico():
+		print('Chamou o método estático sem criar objeto')
+	
+
 casrao = Imovel('Casarao', 3, 4)
 #print(casarao.__dict__)
 
@@ -35,4 +48,4 @@ soma = casarao + mansao
 print(soma)
 print(casrao > mansao)
 
-print(casarao
+Imovel2.metodoEstatico()
