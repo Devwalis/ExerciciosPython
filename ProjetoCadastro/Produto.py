@@ -14,7 +14,14 @@ class Produto:
 	
 
 	def inserir(self):
-		with open('db/produtos.js') as file		
-			lista = jso.load(file)
+		try:
+			with open('db/produtos.js') as file		
+				lista = jso.load(file)
+		except Exception:
+			lista = []
+			
+		lista.append(self.detalhar())
 		
-			print(self.detalhar())
+		with open('db/produtos.json', 'w') as file:
+			json.dump()
+			
