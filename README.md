@@ -36,11 +36,6 @@ Criação de Arquivos Python
 
 Exemplo de criação de arquivos:
 
-touch funcoes.py
-touch listas.py
-touch recursividade.py
-
-Também estou editando os arquivos diretamente pelo terminal usando:
 
 nano funcoes.py
 
