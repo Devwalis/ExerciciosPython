@@ -1,27 +1,17 @@
-from classes.Produto import Produto
-from classes.Categoria import Categoria
-
-item = 1
-itemAlterar = Produto.consultar(item)
+from ProjetoCadastro.Produto import Produto
 
 
+def menu():
+	print()
+	print("1 - Listar Produtos")
+	print("2 - Inserir Produto")
+	print("3 - Alterar Produto")
+	print("4 - Excluir Produto")
+	print("0 - Sair")
+	print()
 
-Produto.consultar()
-itemAlterar = Produto.consulta(1)
-print(itemAlterar['quantidade'])
+opcao = 1
 
-produto = Produto[itemAlterar['codigo'], itemAlterar['nome'], 60, 4000)
-print(produto.detalhar())
-
-
-
-categoria = Categoria('Eletrônicos')
-categoria.inserir()
-
-
-
-#produto = Produto('001', 'Mouse', 2000, 35)
-#produto.inserir()
-#produto.listarTodos()
-
-
+while opcao != 0:
+	menu()
+	opcao = int(input('Escolha uma opção: '))

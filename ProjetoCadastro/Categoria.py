@@ -1,4 +1,4 @@
-from classes.AbstractCrud import AbstractCrud
+from ProjetoCadastro.AbstractCrud import AbstractCrud
 
 class Categoria(AbstractCrud):
 

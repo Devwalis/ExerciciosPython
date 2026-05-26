@@ -1,4 +1,4 @@
-from classes.AbstractCrud import AbstractCrud
+from ProjetoCadastro.AbstractCrud import AbstractCrud
 
 class Produto(AbstractCrud):
 	def __init__(self, codigo, nome, quantidade, valor_unitario):

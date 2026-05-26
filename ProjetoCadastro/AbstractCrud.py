@@ -1,5 +1,5 @@
 import json
-import abc import ABC
+from abc import  ABC
 
 
 
@@ -26,7 +26,7 @@ class AbstractCrud(ABC):
 		lista = cls.consultar()
 		
 		for i, p in enumerate(lista):
-			print(f"{i} - {p}"
+			print(f"{i} - {p}")
 
 	@classmethod
 	def consultar(clf, item = None):
