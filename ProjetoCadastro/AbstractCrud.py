@@ -17,8 +17,7 @@ class AbstractCrud(ABC):
 		
 		lista.append(self.detalhar())
 		
-		with open(self.arquivo, 'w') as file:
-			json.dump(lista, file, indent=4)
+		self.gravarArquivo(lista)
 
 		print('Registro cadastrado com sucesso')
 		
@@ -54,10 +53,29 @@ class AbstractCrud(ABC):
 	def alterar(self, item):
 		lista = self.consultar()
 		lista[item] = self.detalhar()
-		
-
-		with open(self.arquivo, 'w') as file:
-			json.dump(lista, file, indent=4)
+		self.gravarAquivo(lista)
 
 		print('Registro alterado com sucesso')
 
+	def __gravarArquivo(self):
+		with open(self.arquivo, 'w') as file:
+			json.dump(lista, file, indent= 4)
+		
+		print('Operação realizada com sucesso')
+	
+
+	@classmethod
+	def excluir(cls, item):
+		lista = cls.consultar()
+
+		del lista[item]
+
+		with open(cls.arquivo, 'w') as file:
+			json.dump(lista, file, indent=4)
+	
+		cls.__gravarArquivo(lista)
+
+	
+
+		
+		
