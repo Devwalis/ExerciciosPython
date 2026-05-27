@@ -99,7 +99,7 @@ class AbstractCrud(ABC):
 
 		print('Registro alterado com sucesso')
 
-	def __gravarArquivo(self):
+	def _gravarArquivo(self, lista):
 		with open(self.arquivo, 'w') as file:
 			json.dump(lista, file, indent= 4)
 		
