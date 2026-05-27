@@ -19,12 +19,19 @@ while opcao != 0:
 	
 	match opcao:
 		case 1:
-			print('****************************'
+			print('****************************')
 			Produto.listarTodos()
-			print('****************************'
+			print('****************************')
 			
 		case 2:
-			Produto.inserir()
+			codigo = input('Digite o código: ')
+			nome = input('Digite o nome: ')
+			quantidade = input('Digite a quantidade: ')
+			valor = input('Digite o valor do produto: ')
+
+			produto = Produto(codigo, nome, quantidade, valor)
+			
+			produto.inserir()
 
 
 		case 3:

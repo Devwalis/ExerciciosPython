@@ -8,25 +8,67 @@ class AbstractCrud(ABC):
 
 
 	def detalhar(self):
-		return self.__dict__
+		return{
+			"codigo": self.codigo, 
+			"nome": self.nome,
+			"quantidade": self.quantidade,
+			"valor_unitario": self.valor_unitario
+}
+
+
+	#	return self.__dict__
 
 	def inserir(self):
-
-
-		lista = self.consultar()
 		
-		lista.append(self.detalhar())
+		try:
+			with open(self.arquivo, 'r') as file:
+				produtos = json.load(file)
+		except (FileNotFoundError, json.JSONDecodeError):
+			produtos = []
+	
+		novo_produto = {
+			"codigo": self.codigo,
+			"nome": self.nome,
+			"quantidade": self.quantidade,
+			"valor_unitario": self.valor_unitario
+}
+		produtos.append(novo_produto)
 		
-		self.gravarArquivo(lista)
+		with open(self.arquivo, 'w') as file:
+			json.dump(produtos, file, indent= 4)
 
-		print('Registro cadastrado com sucesso')
+		print("Produto cadastrado com sucesso")
+
+			
 		
 	@classmethod	
 	def listarTodos(cls):
-		lista = cls.consultar()
+		try:
+			with open("produtos.json", "r") as file:
+				produtos = json.load(file)
+			for i, produto in enumerate(produtos):
+			
+				print(f"""
+	{i}
+
+	Codigo: {produto['codigo']}
+	Nome: {produto['nome']}
+	Quantidade: {produto['quantidade']}
+	Valor: {produto['valor_unitario']}
+					""")
+
+		except Exception as e:
+			print(f"Erro ao listar produtos:{e}")
+
+
+
+	'''	lista = cls.consultar()
 		
 		for i, p in enumerate(lista):
 			print(f"{i} - {p}")
+
+'''
+
 
 	@classmethod
 	def consultar(clf, item = None):
