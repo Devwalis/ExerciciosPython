@@ -3,7 +3,7 @@ import requests
 
 
 def get_cotacao():
-	url = 'https://api.exchangerate-api.com/v4/latest/BRL'
+	url = 'https://api.exchangerate-api.com/v4/latest/' + destino
 
 	
 	response = requests.get(url)
@@ -16,10 +16,12 @@ def get_cotacao():
 		print("erro ao obter cotações: ", response.status_code)
 		return None
 	
-	
-rates = get_cotacao()
-print("USD:", 1 / rates['USD'])
-print("EUR:", 1 / rates['EUR'])
-print("GBP:", 1 / rates['GBP'])
+def converter_cotacao(origem = 'USD', destino = 'BRL', valor= 1):
+	rates = get_cotacao(destino)
+	return round(1 / rates['origem'], 4)
+
+
+print(converter_cotacao('USD', 'BRL'))
+
 
 
