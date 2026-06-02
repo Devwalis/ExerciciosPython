@@ -28,6 +28,7 @@ def menu():
 	print('2 - Converter Euro em Real')
 	print('3 - Converter Libras em Real')
 	print('4 - Outra cotação')
+	print('0 - Sair')
 	print()
 
 
@@ -53,9 +54,12 @@ while opcao != 0:
 		case 4: 
 			origem = input("Digite a Origem: " )
 			destino = input("Digite o Destino: ")
+	if opcao:
+		print()
+		print('***************************************')
+		print(f'{origem} para {destino}: ', converter_cotacao(origem))
+		print('***************************************')
+		print()	
+
+
 	
-	print()
-	print('***************************************')
-	print(f'{origem} para {destino}: ', converter_cotacao(origem))
-	print('***************************************')
-	print()	
