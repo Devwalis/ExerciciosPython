@@ -27,3 +27,9 @@ def exibir_grafico_pizza(moedas, valores):
 	plt.show()
 
 	
+def exibir_grafico_dispersao(moedas, valores):
+	plt.scatter(moedas, valores)
+	plt.xlabel("Moedas")
+	plt.ylabel("Cotação em relação ao real")
+	plt.title("Relação entre as cotações das moedas em relação ao real")
+
